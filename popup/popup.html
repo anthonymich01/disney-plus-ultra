@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney Plus Ultra</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-wrapper">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 3L19 12L5 21V3Z" fill="url(#play_grad)"/>
+            <path d="M19 5C20.5 7 21 9.5 21 12C21 14.5 20.5 17 19 19" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="play_grad" x1="5" y1="3" x2="19" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00D2FF"/>
+                <stop offset="1" stop-color="#0072D2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>Disney+ <span class="badge-ultra">ULTRA</span></h1>
+          <p class="subtitle">Next-Gen Streaming Enhancer</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="main-content">
+      <!-- Section 1: Auto Skip -->
+      <div class="feature-card">
+        <div class="feature-info">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 4 15 12 5 20 5 4"></polygon>
+              <line x1="19" y1="5" x2="19" y2="19"></line>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <label for="toggle-auto-skip" class="feature-title">Auto Skip Intro & Credits</label>
+            <p class="feature-desc">Immediately skips intros and moves directly to the next episode.</p>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-auto-skip" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Section 2: Fullscreen Continuity -->
+      <div class="feature-card">
+        <div class="feature-info">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <label for="toggle-fullscreen" class="feature-title">Stay in Fullscreen</label>
+            <p class="feature-desc">Prevents dropping out of full screen when transitioning between episodes.</p>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-fullscreen" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Section 3: 21+ Profile PIN -->
+      <div class="feature-card pin-card">
+        <div class="feature-header-row">
+          <div class="feature-info">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <label for="toggle-auto-pin" class="feature-title">Auto Insert Profile PIN</label>
+              <p class="feature-desc">Automatically enters 4-digit PIN for 21+ rated series & movies.</p>
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-auto-pin">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- PIN Input Row -->
+        <div class="pin-config-container" id="pin-config-container">
+          <label class="input-label" for="profile-pin-input">Your 4-Digit Profile PIN</label>
+          <div class="pin-input-group">
+            <input
+              type="password"
+              id="profile-pin-input"
+              maxlength="4"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              placeholder="••••"
+              autocomplete="off"
+            >
+            <button type="button" id="toggle-pin-visibility" class="btn-icon" title="Toggle visibility" aria-label="Toggle PIN visibility">
+              <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <p class="pin-hint">Encrypted and securely saved in your Chrome local profile.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Actions -->
+    <footer class="footer">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span class="status-text" id="status-text">Disney+ Extension Ready</span>
+      </div>
+      <button id="btn-save" class="btn-primary">Save Settings</button>
+    </footer>
+
+    <!-- Toast message -->
+    <div id="toast" class="toast">Settings saved!</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
